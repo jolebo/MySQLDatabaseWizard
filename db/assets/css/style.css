@@ -1,0 +1,58 @@
+* {
+	outline: none;
+	text-decoration: none;
+}
+body {
+	width: 1351px;
+}
+
+.bg-teal {
+	background-color: teal;
+}
+
+nav {
+	height: 70px;
+	padding: 3px !important;
+}
+
+.text-orange {
+	color: orangered;
+}
+
+.td {
+	border-top: none !important;
+}
+
+div.alert {
+	display: flex;
+	height: 50px
+}
+
+.flex-container div {
+	color: white;
+	background-color: #28A745;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	line-height: 75px;
+	font-size: 30px;
+	border-radius: 4px;
+	margin-top: -13px;
+	margin-left: -20px;
+}
+#register .short{
+color: black;
+font-size:larger;
+}
+#register .weak{
+color: black;
+font-size:larger;
+}
+#register .good{
+color: black;
+font-size:larger;
+}
+#register .strong{
+color: black;
+font-size:larger;
+}
