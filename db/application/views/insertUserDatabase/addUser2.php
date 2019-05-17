@@ -32,6 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 	<?php
 	$user = $this->db->query("SELECT * FROM user WHERE User ='".$this->session->userdata('ses_nama')."' ")->row_array();
+	$database = $this->db->query("SELECT * FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME LIKE '".$this->session->userdata('ses_nama')."_%' ")->result_array();
 	?>
 	<!-- navbar -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-teal fixed-top">
@@ -125,15 +126,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</small>
 					<h5 class="font-weight-bold">Database</h5>
 					<div class="input-group mb-2">
-						<div class="input-group-prepend">
-							<div class="input-group-text"><?= $user['User']; ?>_</div>
-						</div>
-						<input type="text" name="database" class="form-control" id="inlineFormInputGroup">
-						<?= form_error('nama'); ?>
+						<select name="database">
+							<?php foreach ($database as $row): ?>
+								<option class="form-control" value="<?php echo $row["SCHEMA_NAME"] ?>"><?php echo $row["SCHEMA_NAME"] ?></option>
+							<?php endforeach; ?>
+						</select>
 					</div>
-					<small class="text-muted">
-						<b>Note</b> : Insert Your Database Name Without <b><?php $user['User'] ?>_</b>
-					</small>
 					<h5 class="font-weight-bold"> Password</h5>
 					<div class="input-group mb-2">
 						<input type="password" id="password" name="password" value="<?php echo $pwd; ?>" class="form-control" id="inlineFormInputGroup">
