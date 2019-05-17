@@ -45,8 +45,8 @@ class UserData extends CI_Controller {
     	$db = $this->input->post('db');
     	$data['db']=$this->dbmodel->selectDb($db);
     	$data['pwd'] = random_string('alnum',8);
-    	$data['info'] = $this->dbmodel->selectUser($db)->row_array();
-    	$this->load->view('addUser2', $data);
+    	$data['info'] = $this->dbmodel->selectUser($db);
+    	$this->load->view('insertUserDatabase/addUser2', $data);
     }
 
 }
